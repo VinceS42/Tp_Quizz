@@ -1,5 +1,10 @@
 <?php
-    $dns="mysql:host=localhost;dbname=quizz";
+
+    $env = parse_ini_file('.env');
+
+    $address = $env['LOCAL_ADDRESS'];
+
+    $dns="mysql:host=" . $address . ";dbname=quizz";
     $user="root";
     $password="";
 
