@@ -3,28 +3,28 @@ CREATE DATABASE IF NOT EXISTS quizz;
 USE quizz;
 
 CREATE TABLE users(
-   id_user INT,
+   id_user INT AUTO_INCREMENT,
    pseudo VARCHAR(150) NOT NULL,
    PRIMARY KEY(id_user),
    UNIQUE(pseudo)
 );
 
 CREATE TABLE questions(
-   id_question INT,
+   id_question INT AUTO_INCREMENT,
    question TEXT NOT NULL,
    reponse TEXT NOT NULL,
    PRIMARY KEY(id_question)
 );
 
 CREATE TABLE scores(
-   id_score INT,
+   id_score INT AUTO_INCREMENT,
    point BIGINT NOT NULL,
    dateTime DATETIME NOT NULL,
    PRIMARY KEY(id_score)
 );
 
 CREATE TABLE fake_reponse(
-   id_fake_reponse INT,
+   id_fake_reponse INT AUTO_INCREMENT,
    fake_reponse TEXT NOT NULL,
    PRIMARY KEY(id_fake_reponse)
 );
