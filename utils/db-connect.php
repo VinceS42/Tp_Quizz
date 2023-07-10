@@ -1,10 +1,10 @@
 <?php
 function dbConnect() {
-    $address = '172.16.238.12'; // Modifiez ici par 'localhost'.
+    $address = 'localhost'; // Modifiez ici par 'localhost'.
     $dns = 'mysql:host=' . $address . ';dbname=quizz';
     $user = 'root';
     $password = '';
-    $db;
+    $db=NULL;
 
     try {
         $db = new PDO($dns, $user, $password);
@@ -17,5 +17,4 @@ function dbConnect() {
 
     return $db;
 }
-
 ?>
