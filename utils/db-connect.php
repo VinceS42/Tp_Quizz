@@ -1,20 +1,13 @@
 <?php
-function dbConnect() {
-    $address = 'localhost'; // Modifiez ici par 'localhost'.
-    $dns = 'mysql:host=' . $address . ';dbname=quizz';
-    $user = 'root';
-    $password = '';
-    $db=NULL;
+    $dns="mysql:host=localhost;dbname=quizz";
+    $user="root";
+    $password="";
 
-    try {
-        $db = new PDO($dns, $user, $password);
-
-    } catch (Exception $error) {
-        echo '<p>Une erreur est survenue.</p>';
-
-        var_dump($error);
+    try{
+        $db=new PDO($dns,$user,$password);
+        // echo "<p>Connected</p>";
     }
-
-    return $db;
-}
+    catch(Exception $message){
+        echo "J'crois y a une dinguerie dans ton code frérot "."<pre>$message</pre>";
+    }
 ?>

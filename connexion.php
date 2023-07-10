@@ -1,19 +1,20 @@
 <?php
-require_once('../utils/db-connect.php');
+require_once('./utils/db-connect.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pseudo = $_POST['pseudo'];
 
-    $query = "SELECT * FROM users WHERE pseudo = '$pseudo'";
+    $query = "SELECT * FROM users WHERE pseudo = :pseudo";
     $stmt = $db->prepare($query);
     $stmt->bindParam(':pseudo', $pseudo);
-    $stmt->execute();;
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // var_dump($result);
 
-    if (mysqli_num_rows($result) > 0) {
+    if (count($result) > 0) {
         header("Location: index.php");
-        exit();
     } else {
-        $query = "INSERT INTO users (pseudo) VALUES ('$pseudo')";
+        $query = "INSERT INTO users (pseudo) VALUES (:pseudo)";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':pseudo', $pseudo);
         $stmt->execute();
