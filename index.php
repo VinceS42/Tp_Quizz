@@ -1,7 +1,5 @@
 <?php
+require_once('utils/db-connect.php');
 
-$env = parse_ini_file('.env');
-
-echo $env['LOCAL_ADDRESS'];
-
+include_once('process/question.php');
 ?>
