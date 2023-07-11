@@ -25,6 +25,7 @@ shuffle($fake);
     <button data-quizz="play">Jouer</button>
     <div>
         <h1><?php echo $question['question']; ?></h1>
+        <input type="hidden" value="<?php echo $question['id_question']; ?>">
     </div>
     <?php for ($i = 0; $i < count($fake); $i++) : ?>
         <div>
