@@ -17,7 +17,7 @@ $stmt = $db->prepare($query);
 $stmt->execute([$question['id_question']]);
 $fake = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-array_push($fake, array('fake_reponse'=>$question['reponse']));
+array_push($fake, array('fake_reponse'=>$question['reponse'])); // il prend les 4 boutons melangés et les positionne aléatoirement
 shuffle($fake);
 ?>
 
