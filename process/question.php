@@ -21,15 +21,30 @@ array_push($fake, array('fake_reponse'=>$question['reponse']));
 shuffle($fake);
 ?>
 
-<section>
+<section class="container">
     <button data-quizz="play">Jouer</button>
-    <div>
-        <h1><?php echo $question['question']; ?></h1>
-        <input type="hidden" value="<?php echo $question['id_question']; ?>">
-    </div>
-    <?php for ($i = 0; $i < count($fake); $i++) : ?>
-        <div>
-            <button><?php echo $fake[$i]['fake_reponse']; ?></button>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h1 class="text-center"><?php echo $question['question']; ?></h1>
+            <input type="hidden" value="<?php echo $question['id_question']; ?>">
         </div>
-    <?php endfor; ?>
+    </div>
+    <div class="justify-content-center">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <button class="btn btn-block btn-primary"><?php echo $fake[0]['fake_reponse']; ?></button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-block btn-danger"><?php echo $fake[1]['fake_reponse']; ?></button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <button class="btn btn-block btn-success"><?php echo $fake[2]['fake_reponse']; ?></button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-block btn-warning"><?php echo $fake[3]['fake_reponse']; ?></button>
+            </div>
+        </div>
+    </div>
 </section>
