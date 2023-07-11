@@ -1,0 +1,17 @@
+.incorrect {
+    background-color: red;
+  }
+
+  .correct {
+    background-color: green;
+  }
+
+  .next{
+    background-color: rgb(192, 211, 17);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 20px;
+  }
