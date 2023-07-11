@@ -1,8 +1,6 @@
 <?php
 require_once('./utils/db-connect.php');
 
-include_once('./partials/header.php');
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pseudo = $_POST['pseudo'];
 
@@ -26,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 }
+
+include_once('./partials/header.php');
 ?>
 <section class="container-fluid">
     <div class="row justify-content-center">
