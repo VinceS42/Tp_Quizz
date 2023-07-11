@@ -16,6 +16,9 @@ $query = "SELECT fr.fake_reponse
 $stmt = $db->prepare($query);
 $stmt->execute([$question['id_question']]);
 $fake = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+array_push($fake, array('fake_reponse'=>$question['reponse']));
+shuffle($fake);
 ?>
 
 <section>
@@ -23,12 +26,9 @@ $fake = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div>
         <h1><?php echo $question['question']; ?></h1>
     </div>
-    <div>
-        <button><?php echo $question['reponse']; ?></button>
-    </div>
-    <?php foreach ($fake as $fakeReponse) : ?>
+    <?php for ($i = 0; $i < count($fake); $i++) : ?>
         <div>
-            <button><?php echo $fakeReponse['fake_reponse']; ?></button>
+            <button><?php echo $fake[$i]['fake_reponse']; ?></button>
         </div>
-    <?php endforeach; ?>
+    <?php endfor; ?>
 </section>
