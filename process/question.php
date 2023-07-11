@@ -17,7 +17,7 @@ $stmt = $db->prepare($query);
 $stmt->execute([$question['id_question']]);
 $fake = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-array_push($fake, array('fake_reponse'=>$question['reponse']));
+array_push($fake, array('fake_reponse' => $question['reponse']));
 shuffle($fake);
 ?>
 
@@ -30,21 +30,23 @@ shuffle($fake);
         </div>
     </div>
     <div class="justify-content-center">
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <button class="btn btn-block btn-primary"><?php echo $fake[0]['fake_reponse']; ?></button>
+        <form action="" method="post">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn-primary response"><?php echo $fake[0]['fake_reponse']; ?></button>
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn-danger response"><?php echo $fake[1]['fake_reponse']; ?></button>
+                </div>
             </div>
-            <div class="col-6">
-                <button class="btn btn-block btn-danger"><?php echo $fake[1]['fake_reponse']; ?></button>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn-success response"><?php echo $fake[2]['fake_reponse']; ?></button>
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn-warning response"><?php echo $fake[3]['fake_reponse']; ?></button>
+                </div>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <button class="btn btn-block btn-success"><?php echo $fake[2]['fake_reponse']; ?></button>
-            </div>
-            <div class="col-6">
-                <button class="btn btn-block btn-warning"><?php echo $fake[3]['fake_reponse']; ?></button>
-            </div>
-        </div>
+        </form>
     </div>
 </section>

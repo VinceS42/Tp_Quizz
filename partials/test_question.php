@@ -2,7 +2,7 @@
     <section class="container">
         <div class="row question">
             <div class="d-flex justify-content-center">
-                <h2>Qu'elle est la capitale de la France ?</p>
+                <h2>Qu'elle est la capitale de la France ?</h2>
             </div>
             <div class="row options">
                 <form action="" method="post">
