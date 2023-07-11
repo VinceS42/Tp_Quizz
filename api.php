@@ -1,6 +1,6 @@
 <?php
 
-require_once('./utils/db-connect.php');
+require_once('utils/db-connect.php');
 
 function getGoodResponse() {
     $questionIdIsOk = (isset($_POST['question']) && !empty($_POST['question']));

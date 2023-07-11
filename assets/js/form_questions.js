@@ -89,11 +89,3 @@ function reponse() {
       });
 
 }
-
-async function fetch() {
-    const response = await fetch('../api.php') 
-        if (response.ok === true) {
-            return reponse.text()
-    } 
-    throw new Error('impossible to fetch')
-}
