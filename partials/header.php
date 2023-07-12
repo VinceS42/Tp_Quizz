@@ -13,6 +13,7 @@ $title = 'Accueil';
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/form_question.css">
     <link rel="stylesheet" href="assets/css/connexion.css">
+    <link rel="stylesheet" href="assets/css/question.css">
 </head>
 <body>
     
