@@ -46,6 +46,8 @@ function replayQuizz() {
     document.querySelector('.life').innerHTML = 'Vies restantes : ' + life;
 }
 
-document.querySelector('a[data-quizz="play"]').addEventListener('click', (event) => {
-    tempo = setInterval(timerForQuestion, 1000);
-});
+if (document.URL.indexOf('question.php') > -1) {
+    document.querySelector('a[data-quizz="play"]').addEventListener('click', (event) => {
+        tempo = setInterval(timerForQuestion, 1000);
+    });
+}

@@ -11,6 +11,7 @@ $stmt=$db->prepare($query);
 $stmt->execute();
 $scores=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
+include_once('./partials/header.php');
 ?>
 
 <section>

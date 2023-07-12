@@ -63,4 +63,6 @@ function createTopPlayersChart() {
     }
 }
 
-createTopPlayersChart();
+if (document.URL.indexOf('question.php') > -1) {
+    createTopPlayersChart();
+}

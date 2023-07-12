@@ -17,35 +17,37 @@ $stmt = $db->prepare($query);
 $stmt->execute([$question['id_question']]);
 $fake = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-array_push($fake, array('fake_reponse'=>$question['reponse']));
+array_push($fake, array('fake_reponse' => $question['reponse'])); // il prend les 4 boutons melangés et les positionne aléatoirement
 shuffle($fake);
 ?>
 
-<section class="container">
+<section class="container question">
     <button data-quizz="play">Jouer</button>
     <div class="jsp"></div>
     <div class="row justify-content-center">
         <div class="col-8 border rounded-4 p-5 mt-5 qstn">
             <h1 class="text-center"><?php echo $question['question']; ?></h1>
-            <input type="hidden" value="<?php echo $question['id_question']; ?>">
         </div>
     </div>
     <div class="justify-content-center">
-        <div class="row justify-content-center mb-5">
-            <div class="col-6">
-                <button class="btn btn-block btn-primary btn-lg rep"><?php echo $fake[0]['fake_reponse']; ?></button>
+        <form action="" method="post">
+            <input type="hidden" name="question" value="<?php echo $question['id_question']; ?>">
+            <div class="row justify-content-center mb-5">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn-lg btn-primary response"><?php echo $fake[0]['fake_reponse']; ?></button>
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn-lg btn-danger response"><?php echo $fake[1]['fake_reponse']; ?></button>
+                </div>
             </div>
-            <div class="col-6">
-                <button class="btn btn-block btn-danger btn-lg rep"><?php echo $fake[1]['fake_reponse']; ?></button>
+            <div class="row justify-content-center mt-5">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn-lg btn-success response"><?php echo $fake[2]['fake_reponse']; ?></button>
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn-lg btn-warning response"><?php echo $fake[3]['fake_reponse']; ?></button>
+                </div>
             </div>
-        </div>
-        <div class="row justify-content-center mt-5">
-            <div class="col-6">
-                <button class="btn btn-block btn-success btn-lg rep"><?php echo $fake[2]['fake_reponse']; ?></button>
-            </div>
-            <div class="col-6">
-                <button class="btn btn-block btn-warning btn-lg text-white rep"><?php echo $fake[3]['fake_reponse']; ?></button>
-            </div>
-        </div>
+        </form>
     </div>
 </section>
