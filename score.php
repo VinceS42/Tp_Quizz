@@ -10,6 +10,7 @@ $query="SELECT u.*,s.*
 $stmt=$db->prepare($query);
 $stmt->execute();
 $scores=$stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <section>
@@ -25,7 +26,7 @@ $scores=$stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php if ($stmt->rowCount() > 0) { 
             ?>
                 <?php foreach ($scores as $score) { ?>
-                    <tr>
+                <tr data-user="<?= $score['pseudo'] ?>" data-score="<?= $score['point'] ?>" class="playerLine">
                         <td><?php echo $score['pseudo'] ?></td>
                         <td><?php echo $score['point'] ?></td>
                         <td><?php echo $score['dateTime'] ?></td>
@@ -38,4 +39,12 @@ $scores=$stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php } ?>
         </tbody>
     </table>
+    <!-- Graphique top 5 joueurs -->
+    <canvas id="topBarChart"></canvas>
 </section>
+
+<?php
+
+include('partials/footer.php');
+
+?>
