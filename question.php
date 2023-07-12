@@ -25,7 +25,7 @@ shuffle($fake);
     <button data-quizz="play">Jouer</button>
     <div class="jsp"></div>
     <div class="row justify-content-center">
-        <div class="col-8 border rounded-4 p-5 mt-5 mb-5">
+        <div class="col-8 border rounded-4 p-5 mt-5 qstn">
             <h1 class="text-center"><?php echo $question['question']; ?></h1>
             <input type="hidden" value="<?php echo $question['id_question']; ?>">
         </div>
