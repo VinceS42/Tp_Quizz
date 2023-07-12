@@ -42,35 +42,42 @@
 //         throw new Error('impossible to fetch')
 // }
 
+
+
 const responses = document.querySelectorAll('.response');
 
 responses.forEach(response => {
   response.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const randomValue = response.innerHTML;
+    const randomValue = response.innerHTML;    
 
-    if (randomValue === 'Paris') { 
+    test = test()
+          
+         test.then(result => { 
+          console.log(result['reponse']);
+          if (randomValue === result['reponse']) { 
 
-        reponse()
-
-    } else {
-
-        reponse()
-
-    }
-
-    disableButtons();
-
-    const questionblock = document.querySelector('.question');
-
-    const nextButton = document.createElement('button');
-    nextButton.textContent = 'Suivant';
-    nextButton.classList.add('next');
-    questionblock.appendChild(nextButton);
-
-  });
-});
+              reponse(result)
+      
+          } else {
+      
+              reponse(result)
+      
+          }
+      
+          disableButtons();
+      
+          const questionblock = document.querySelector('.question');
+      
+          const nextButton = document.createElement('button');
+          nextButton.textContent = 'Suivant';
+          nextButton.classList.add('next');
+          questionblock.appendChild(nextButton);            
+        });
+    });
+      
+  }); 
 
 function disableButtons() {
   responses.forEach(response => {
@@ -78,22 +85,47 @@ function disableButtons() {
   });
 }
 
-function reponse() {
+function reponse(result) {
     
-    responses.forEach(reponse => {
-        if (reponse.innerHTML === 'Paris') {
-            reponse.classList.add('bg-success'); 
+    responses.forEach(response => {
+        if (response.innerHTML === result['reponse']) {
+            response.classList.add('bg-success'); 
         } else {
-            reponse.classList.add('bg-danger'); 
+            response.classList.add('bg-danger'); 
         }
       });
 
 }
 
-async function fetch() {
-    const response = await fetch('../api.php') 
-        if (response.ok === true) {
-            return reponse.text()
+
+
+async function test() {
+  $input = document.querySelector('input[name=question]');
+    const reponse = await fetch('../api.php?question=' + document.querySelector('input[name=question]').value); //fetch renvoie une promise, donc voila pourquoi je n'ai pas besoin d'en créer une nouvelle
+    // { 
+    //    method: 'GET',
+    //    body: {"question": document.querySelector('input[name=question]').value['question']} //controler sur MDN fetch "FOURNIR VOTRE PROPRE OBJET REQUETE"
+    //   }
+    
+
+        const data = await reponse.json();
+        // const question = data.question;
+
+        // console.log(data);
+
+
+
+      // reponse.headers.forEach((value, name) => {
+      //   console.log(`${name}: ${value}`);
+      // });
+
+      // reponse.headers.forEach
+      // console.log(reponse.headers.get('question'))
+
+
+
+    if (reponse.ok === true) {          
+            return data;
     } 
     throw new Error('impossible to fetch')
 }

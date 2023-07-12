@@ -2,23 +2,24 @@
 
 require_once('./utils/db-connect.php');
 
-function getGoodResponse() {
-    $questionIdIsOk = (isset($_POST['question']) && !empty($_POST['question']));
+function getGoodResponse($database) {
+    $questionIdIsOk = (isset($_GET['question']) && !empty($_GET['question']));
 
+  
     if ($questionIdIsOk) {
-        $request = $db->prepare('SELECT reponse FROM questions WHERE id_question = :question;');
-        $request->bindValue(':question', $_POST['question'], PDO::PARAM_INT);
+        $request = $database->prepare('SELECT reponse FROM questions WHERE id_question = :question;');
+        $request->bindValue(':question', $_GET['question'], PDO::PARAM_INT);
         $request->execute();
 
-        $rawResponse = $request->fetch();
+        $rawResponse = $request->fetch(PDO::FETCH_ASSOC);
 
         echo json_encode($rawResponse);
 
     } else {
-        echo json_encode('J\'ai besoin que tu m\'envoie $_POST[\'question\'] pour traiter ta demande.');
+        echo json_encode('J\'ai besoin que tu m\'envoie $_GET[\'question\'] pour traiter ta demande.');
     }
 }
 
-getGoodResponse();
+getGoodResponse($db);
 
 ?>

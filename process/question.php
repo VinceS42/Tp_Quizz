@@ -17,19 +17,36 @@ $stmt = $db->prepare($query);
 $stmt->execute([$question['id_question']]);
 $fake = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-array_push($fake, array('fake_reponse'=>$question['reponse'])); // il prend les 4 boutons melangés et les positionne aléatoirement
+array_push($fake, array('fake_reponse' => $question['reponse'])); // il prend les 4 boutons melangés et les positionne aléatoirement
 shuffle($fake);
 ?>
 
-<section>
+<section class="container question">
     <button data-quizz="play">Jouer</button>
-    <div>
-        <h1><?php echo $question['question']; ?></h1>
-        <input type="hidden" value="<?php echo $question['id_question']; ?>">
-    </div>
-    <?php for ($i = 0; $i < count($fake); $i++) : ?>
-        <div>
-            <button><?php echo $fake[$i]['fake_reponse']; ?></button>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h1 class="text-center"><?php echo $question['question']; ?></h1>
         </div>
-    <?php endfor; ?>
+    </div>
+    <div class="justify-content-center">
+        <form action="" method="post">
+            <input type="hidden" name="question" value="<?php echo $question['id_question']; ?>">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn btn-primary response"><?php echo $fake[0]['fake_reponse']; ?></button>
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn btn-primary response"><?php echo $fake[1]['fake_reponse']; ?></button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn btn-primary response"><?php echo $fake[2]['fake_reponse']; ?></button>
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-block btn btn-primary response"><?php echo $fake[3]['fake_reponse']; ?></button>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
