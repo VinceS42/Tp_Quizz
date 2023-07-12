@@ -23,27 +23,28 @@ shuffle($fake);
 
 <section class="container">
     <button data-quizz="play">Jouer</button>
+    <div class="jsp"></div>
     <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col-8 border rounded-4 p-5 mt-5 mb-5">
             <h1 class="text-center"><?php echo $question['question']; ?></h1>
             <input type="hidden" value="<?php echo $question['id_question']; ?>">
         </div>
     </div>
     <div class="justify-content-center">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mb-5">
             <div class="col-6">
-                <button class="btn btn-block btn-primary"><?php echo $fake[0]['fake_reponse']; ?></button>
+                <button class="btn btn-block btn-primary btn-lg rep"><?php echo $fake[0]['fake_reponse']; ?></button>
             </div>
             <div class="col-6">
-                <button class="btn btn-block btn-danger"><?php echo $fake[1]['fake_reponse']; ?></button>
+                <button class="btn btn-block btn-danger btn-lg rep"><?php echo $fake[1]['fake_reponse']; ?></button>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-5">
             <div class="col-6">
-                <button class="btn btn-block btn-success"><?php echo $fake[2]['fake_reponse']; ?></button>
+                <button class="btn btn-block btn-success btn-lg rep"><?php echo $fake[2]['fake_reponse']; ?></button>
             </div>
             <div class="col-6">
-                <button class="btn btn-block btn-warning"><?php echo $fake[3]['fake_reponse']; ?></button>
+                <button class="btn btn-block btn-warning btn-lg text-white rep"><?php echo $fake[3]['fake_reponse']; ?></button>
             </div>
         </div>
     </div>
