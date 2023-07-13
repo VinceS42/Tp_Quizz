@@ -74,7 +74,7 @@ responses.forEach(response => {
           nextButton.textContent = 'Suivant';
           nextButton.classList.add('next');
           questionblock.appendChild(nextButton);
-          nextButton.href = '/';                                          // pourquoi ça? on revient directement a la racine de la page (index.php)
+          nextButton.href = '/'; // pourquoi ça? on revient directement a la racine de la page (index.php)
 
         });
     });

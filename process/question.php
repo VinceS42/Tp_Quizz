@@ -1,4 +1,7 @@
 <?php
+
+require_once('./utils/db-connect.php');
+
 $query = "SELECT q.*, fr.fake_reponse
         FROM questions q
         JOIN id_question_reponse iqr ON q.id_question = iqr.id_question
@@ -24,27 +27,27 @@ shuffle($fake);
 <section class="container question">
     <button data-quizz="play">Jouer</button>
     <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col-8 border rounded-4 p-5 mt-5 qstn">
             <h1 class="text-center"><?php echo $question['question']; ?></h1>
         </div>
     </div>
     <div class="justify-content-center">
         <form action="" method="post">
             <input type="hidden" name="question" value="<?php echo $question['id_question']; ?>">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mb-5">
                 <div class="col-6">
-                    <button type="submit" class="btn btn-block btn btn-primary response"><?php echo $fake[0]['fake_reponse']; ?></button>
+                    <button type="submit" class="btn btn-block btn-primary btn-lg response"><?php echo $fake[0]['fake_reponse']; ?></button>
                 </div>
                 <div class="col-6">
-                    <button type="submit" class="btn btn-block btn btn-primary response"><?php echo $fake[1]['fake_reponse']; ?></button>
+                    <button type="submit" class="btn btn-block btn-danger btn-lg response"><?php echo $fake[1]['fake_reponse']; ?></button>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-5">
                 <div class="col-6">
-                    <button type="submit" class="btn btn-block btn btn-primary response"><?php echo $fake[2]['fake_reponse']; ?></button>
+                    <button type="submit" class="btn btn-block btn-success btn-lg response"><?php echo $fake[2]['fake_reponse']; ?></button>
                 </div>
                 <div class="col-6">
-                    <button type="submit" class="btn btn-block btn btn-primary response"><?php echo $fake[3]['fake_reponse']; ?></button>
+                    <button type="submit" class="btn btn-block btn-warning btn-lg text-white response"><?php echo $fake[3]['fake_reponse']; ?></button>
                 </div>
             </div>
         </form>
