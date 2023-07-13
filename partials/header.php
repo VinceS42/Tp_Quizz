@@ -1,7 +1,9 @@
 <?php
 
-$title = 'Accueil';
+session_start();
+// unset($_SESSION['pseudo']);
 
+$title = 'Accueil';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

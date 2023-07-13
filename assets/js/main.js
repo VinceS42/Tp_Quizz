@@ -1,13 +1,13 @@
 let tempo;
 let life = 3;
-let timer = 5;
+let timer = 15;
 let pts = 0;
 
 function timerForQuestion() {
     if (timer > 0) {
         timer -= 1;
 
-        let str = '00:' + ((timer > 9)?timer:'0' + timer);
+        let str = '00:' + ((timer > 9)?timer:'0' + timer); // Affiche le temps au format 00:00
 
         document.querySelector('.timer').innerHTML = str;
     } else {
@@ -33,19 +33,21 @@ function timerForQuestion() {
 }
 
 function continueQuizz() {
-    timer = 5;
+    timer = 15;
     tempo = setInterval(timerForQuestion, 1000);
 }
 
 function replayQuizz() {
     life = 3;
-    timer = 5;
+    timer = 15;
     // Faire un fetch ici
     tempo = setInterval(timerForQuestion, 1000);
 
     document.querySelector('.life').innerHTML = 'Vies restantes : ' + life;
 }
 
-document.querySelector('a[data-quizz="play"]').addEventListener('click', (event) => {
-    tempo = setInterval(timerForQuestion, 1000);
-});
+// if (document.URL.indexOf('index.php') > -1) {
+//     document.querySelector('a[data-quizz="play"]').addEventListener('click', (event) => {
+        tempo = setInterval(timerForQuestion, 1000);
+//     });
+// }

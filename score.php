@@ -6,15 +6,16 @@ $query="SELECT u.*,s.*
         JOIN id_user_score ius ON u.id_user=ius.id_user
         JOIN scores s ON s.id_score=ius.id_score
         ORDER BY s.point DESC
-        LIMIT 5";
+        LIMIT 5"; 
 $stmt=$db->prepare($query);
 $stmt->execute();
 $scores=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
+include_once('./partials/header.php');
 ?>
 
-<section>
-    <table>
+<section class="d-flex vh-100 container">
+    <table class="table">
         <thead>
             <tr>
                 <th colspan="1">Pseudo</th>
@@ -39,8 +40,10 @@ $scores=$stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php } ?>
         </tbody>
     </table>
-    <!-- Graphique top 5 joueurs -->
-    <canvas id="topBarChart"></canvas>
+    <div class="graph">
+        <canvas id="topBarChart"></canvas>
+    </div>
+    
 </section>
 
 <?php

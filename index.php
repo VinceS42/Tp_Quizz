@@ -1,5 +1,5 @@
 <?php
-require_once('utils/db-connect.php');
+require_once('utils/db-connect.php'); // J'appelle la base de données
 
 include_once('partials/header.php');
 
