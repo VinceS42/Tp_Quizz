@@ -4,6 +4,17 @@ function createTopPlayersChart() {
 
     let chartLabels = [];
     let chartDatas = [];
+    const plugin = {
+      id: 'customCanvasBackgroundColor',
+      beforeDraw: (chart, args, options) => {
+        const {ctx} = chart;
+        ctx.save();
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.fillStyle = options.color || '#99ffff';
+        ctx.fillRect(0, 0, chart.width, chart.height);
+        ctx.restore();
+      }
+    };    
 
     if (allPlayersLine.length > 0) {
         allPlayersLine.forEach(player => {
@@ -23,6 +34,9 @@ function createTopPlayersChart() {
           options: {
             responsive: true,
             plugins: {
+              customCanvasBackgroundColor: {
+                color: 'rgba(255, 255, 255)',
+              },
               legend: {
                 position: 'top',
               },
@@ -31,7 +45,8 @@ function createTopPlayersChart() {
                 text: 'Top 5 joueurs'
               }
             }
-          }
+          },
+          plugins: [plugin],
         };
 
         new Chart(canvasTopBarChart, config);

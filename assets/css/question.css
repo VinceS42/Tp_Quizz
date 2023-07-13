@@ -5,6 +5,15 @@
 .jsp {
     margin-bottom: 20%;
 }
+.foucault {
+    background-image: url(../images/foucault.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1);
+    height: 500px;
+    width: 500px;
+}
 .qstn {
-    margin-bottom: 10%;
+    background-color: rgba(255, 255, 255, 0.8);
 }

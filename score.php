@@ -14,8 +14,8 @@ $scores=$stmt->fetchAll(PDO::FETCH_ASSOC);
 include_once('./partials/header.php');
 ?>
 
-<section>
-    <table>
+<section class="d-flex vh-100 container">
+    <table class="table">
         <thead>
             <tr>
                 <th colspan="1">Pseudo</th>
@@ -40,8 +40,10 @@ include_once('./partials/header.php');
             <?php } ?>
         </tbody>
     </table>
-    <!-- Graphique top 5 joueurs -->
-    <canvas id="topBarChart"></canvas>
+    <div class="graph">
+        <canvas id="topBarChart"></canvas>
+    </div>
+    
 </section>
 
 <?php

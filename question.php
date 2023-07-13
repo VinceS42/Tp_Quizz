@@ -1,5 +1,5 @@
 <?php
-var_dump($title);
+// var_dump($title);
 $query = "SELECT q.*, fr.fake_reponse
         FROM questions q
         JOIN id_question_reponse iqr ON q.id_question = iqr.id_question /* le premier JOIN permet de lier id_question de la table questions avec le id question de la table id_question_reponse */
@@ -23,24 +23,25 @@ array_push($fake, array('fake_reponse' => $question['reponse'])); // il prend le
 // Le array permet de lier fake_reponse à la bonne réponse
 shuffle($fake); // On mélange aléatoirement les 4 réponses au hasard
 // var_dump($fake);
-var_dump($_SESSION);
+// var_dump($_SESSION);
 ?>
 
-<section class="container question">
-    <a data-quizz="play">Jouer</a>
-    <div class="jsp">
-        <p class="life"></p>
-        <p class="timer"></p>
+<section class="container question justify-content-center align-item-center">
+    <a class="text-white" data-quizz="play">Jouer</a>
+    <div class="">
+        <p class="life text-white">3</p>
+        <p class="timer text-white">00:15</p>
     </div>
+    <div class="foucault rounded-circle mx-auto"></div>
     <div class="row justify-content-center">
-        <div class="col-8 border rounded-4 p-5 mt-5 qstn">
+        <div class="col-8 border rounded-4 p-5 mt-2 mb-2 qstn">
             <h1 class="text-center"><?php echo $question['question']; ?></h1>
         </div>
     </div>
     <div class="justify-content-center">
         <form action="" method="post">
             <input type="hidden" name="question" value="<?php echo $question['id_question']; ?>"><!-- Permet de lier avec le JS -->
-            <div class="row justify-content-center mb-5">
+            <div class="row justify-content-center mb-1">
                 <div class="col-6">
                     <button type="submit" class="btn btn-block btn-lg btn-primary response"><?php echo $fake[0]['fake_reponse']; ?></button>
                 </div>

@@ -1,8 +1,6 @@
 <?php
-
 include_once('./partials/header.php');
 require_once('./utils/db-connect.php');
-
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') { // si la requête est de type POST
     if(!empty($_POST['pseudo'])) { // si le pseudo est différent de vide
@@ -34,11 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { // si la requête est de type POST
         echo "Rentre un pseudo putain tu fais chier là";
     }
 }
-
-
 ?>
-<section class="container-fluid">
-    <div class="row justify-content-center">
+<section class="container d-flex align-items-center vh-100 justify-content-center">
+    <div class="row justify-content-center w-100">
         <div class="bg-test col-6 mt-5 mb-5 p-5 rounded-4">
             <form method="POST" class="text-center">
                 <input type="text" name="pseudo" class=" input form-control mb-5" size="80" placeholder="Votre pseudo">
@@ -47,8 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { // si la requête est de type POST
         </div>
     </div>
 </section>
-
-
 <?php
 include_once('./partials/footer.php');
 ?>
