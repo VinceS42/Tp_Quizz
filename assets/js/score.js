@@ -63,6 +63,6 @@ function createTopPlayersChart() {
     }
 }
 
-if (document.URL.indexOf('question.php') > -1) {
+if (document.URL.indexOf('score.php') > -1) {
     createTopPlayersChart();
 }

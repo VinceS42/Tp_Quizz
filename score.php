@@ -6,7 +6,7 @@ $query="SELECT u.*,s.*
         JOIN id_user_score ius ON u.id_user=ius.id_user
         JOIN scores s ON s.id_score=ius.id_score
         ORDER BY s.point DESC
-        LIMIT 5";
+        LIMIT 5"; 
 $stmt=$db->prepare($query);
 $stmt->execute();
 $scores=$stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -7,7 +7,7 @@ function timerForQuestion() {
     if (timer > 0) {
         timer -= 1;
 
-        let str = '00:' + ((timer > 9)?timer:'0' + timer);
+        let str = '00:' + ((timer > 9)?timer:'0' + timer); // Affiche le temps au format 00:00
 
         document.querySelector('.timer').innerHTML = str;
     } else {
@@ -46,7 +46,7 @@ function replayQuizz() {
     document.querySelector('.life').innerHTML = 'Vies restantes : ' + life;
 }
 
-if (document.URL.indexOf('question.php') > -1) {
+if (document.URL.indexOf('index.php') > -1) {
     document.querySelector('a[data-quizz="play"]').addEventListener('click', (event) => {
         tempo = setInterval(timerForQuestion, 1000);
     });
