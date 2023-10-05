@@ -20,7 +20,5 @@ function getGoodResponse($database) {
 }
 
 getGoodResponse($db); // Appelle de la fonction getGoodResponse
-var_dump(getGoodResponse($db));
-
 
 ?>

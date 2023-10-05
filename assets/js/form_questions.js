@@ -111,7 +111,7 @@ async function test() { // je crée une fonction qui va retourner le contenu de 
   //   }
 
 
-  const data = await reponse.json(); //
+  const data = await reponse.json();
   // const question = data.question;
 
   // console.log(data);
